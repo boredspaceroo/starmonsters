@@ -5,7 +5,7 @@ import { initEnemies } from './enemy.js';
 export function checkLevelComplete() {
   let allDead = game.enemies.every(e => !e.alive);
   if (allDead) {
-    // For every 5 sub-levels, the 6th is a boss fight.
+    // If next level is boss (every 4th), placeholder
     if ((game.level + 1) % 4 === 0) {
       game.bossFight = true;
       game.bossFightStart = millis();
@@ -15,5 +15,17 @@ export function checkLevelComplete() {
       game.enemyShootingRate += 0.001;
       initEnemies();
     }
+  }
+}
+
+export function gameOver() {
+  game.state = 'gameOver';
+  const finalScoreEl = document.getElementById('final-score');
+  if (finalScoreEl) {
+    finalScoreEl.textContent = game.score;
+  }
+  const gameOverScreen = document.getElementById('game-over-screen');
+  if (gameOverScreen) {
+    gameOverScreen.style.display = 'flex';
   }
 }
