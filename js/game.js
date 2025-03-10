@@ -51,7 +51,6 @@ export function initGame(width, height) {
   game.width = width;
   game.height = height;
   adjustGameParameters();
-  initStars();
 }
 
 function adjustGameParameters() {
