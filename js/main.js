@@ -84,6 +84,9 @@ function startGame() {
   game.state = 'playing';
   document.getElementById('start-screen').style.display = 'none';
   
+  document.getElementById('mecha-left').style.display = 'block';
+  document.getElementById('mecha-right').style.display = 'block';
+  
   // iOS orientation permission
   if (typeof DeviceOrientationEvent !== 'undefined' &&
       typeof DeviceOrientationEvent.requestPermission === 'function') {
